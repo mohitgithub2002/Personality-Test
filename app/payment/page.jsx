@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import Script from 'next/script'
-const paymentPage = () => {
+const PaymentPage = () => {
     const [amount, setAmount] = useState(0)
     const checkout = async() =>{
         
@@ -75,4 +75,4 @@ const paymentPage = () => {
     );
 }
 
-export default paymentPage;
+export default PaymentPage;

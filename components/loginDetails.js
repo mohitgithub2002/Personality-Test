@@ -40,7 +40,7 @@ export default function LoginDetails() {
                     
                     <div className="mt-5 space-y-2">
                         <h3 className="text-gray-800 text-2xl font-bold sm:text-3xl">Login to account</h3>
-                        <p className="">haven't account? <Link href="/register" className="font-medium text-pink-600 hover:text-pink-500">Register</Link></p>
+                        <p className="">haven&apos;t account? <Link href="/register" className="font-medium text-pink-600 hover:text-pink-500">Register</Link></p>
                     </div>
                 </div>
 
