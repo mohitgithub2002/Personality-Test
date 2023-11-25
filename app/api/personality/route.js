@@ -3,17 +3,28 @@ import { connectDB } from "@/utils/mongodb";
 import { NextResponse } from "next/server";
 
 export const POST = async (req)=>{
+    //scores are already calculated on UI for every category out of 100 and pass in api
     try{
-        const {mobile,personality} = await req.json();
-        console.log(mobile,personality)
+        const {email,answers,categoryscore} = await req.json();
+        console.log(email,answers,categoryscore);
         await connectDB();
-        const user = await User.findOne({mobile});
+        const user = await User.findOne({email});
         if(!user){
             return NextResponse.json({message:"User not found"},{status:404})
         }
-        if(user.personality){
-            User.updateOne({mobile:mobile},{$set:{personality:personality}});
-            return NextResponse.json({message:"Personality Updated"},{status:201})
+        console.log("userScore is"+user.score);
+        if(!user.score){
+            let totalScore = 0;
+            categoryscore.forEach(element => {
+                totalScore += Number(element)
+            });
+            const userScore = totalScore/(categoryscore.length);
+            console.log(userScore);
+            user.score = userScore;
+            user.quizAnswer = answers;
+            user.categoryScore = categoryscore;
+            await user.save();
+            return NextResponse.json({message:"Test Submitted"},{status:200})
         }
         else{
             return NextResponse.json({message:"Personality already exists"},{status:201})
