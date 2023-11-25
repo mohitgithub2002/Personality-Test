@@ -6,7 +6,9 @@ const userSchema = new Schema({
     mobile: String,
     password: String,
     personality: String,
-
+    paymentid: String,
+    premium: Boolean,
+    QuizAnswer: [String],
 })
 
 const User =  models.User || mongoose.model('User', userSchema);

@@ -3,25 +3,25 @@ import { connectDB } from "@/utils/mongodb";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
-const authOption = {
+export const authOption = {
     providers: [
         CredentialsProvider({
             name: 'Credentials',
             credentials: {},
 
             async authorize(credentials) {
-                const {mobile, password} = credentials;
+                const {email, password} = credentials;
 
                 try{
                     await connectDB();
-                    const user = await User.findOne({mobile});
+                    const user = await User.findOne({email});
                     if(!user){
-                        throw new Error("User not found");
+                        return null;
                         
                     }
                     const isValid = await bcrypt.compare(password, user.password);
                     if(!isValid){
-                        throw new Error("Invalid Password");
+                        return null;
 
                     }
                     
@@ -33,9 +33,31 @@ const authOption = {
             }
         })
     ],
-    session: {
-        styartegy : 'jwt',
 
+    callbacks: {
+        async jwt ({token, user, }) {
+            if(user){
+                return {
+                    ...token,
+                    id: user._id,
+                }
+            };
+            return token;
+        },
+        async session({session, token}){
+           
+            return {
+                ...session,
+                user: {
+                    ...session.user,
+                    id: token.id,
+                },
+            };
+        }
+    },
+    session: {
+        strategy : 'jwt',
+        maxAge: 30 * 24 * 60 * 60,
     },
 
     secret : process.env.NEXTAUTH_SECRET,

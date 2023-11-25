@@ -1,6 +1,5 @@
 import Question from "@/models/questionSchema";
 import { connectDB } from "@/utils/mongodb";
-import mongoose from "mongoose";
 import { NextResponse } from "next/server";
 
 export const GET = async ()=>{
@@ -8,17 +7,19 @@ export const GET = async ()=>{
         await connectDB();
 
         const questions = await Question.find();
+        console.log(questions)
         return NextResponse.json({status:200, data:questions})
     }catch(err){
+        console.log (err);
        return NextResponse.json({status:500, json:err})
     }
 }
 
 export const POST = async (req)=>{
     try{
-        const {id, question,options} = await req.json();
+        const {id, questionType ,question, optionType ,options } = await req.json();
         await connectDB();
-        await Question.create({id, question,options});
+        await Question.create({id, questionType, question, optionType , options});
         return NextResponse.json({message:"Question Created"},{status:201})
     }catch(err){
         return NextResponse.json({message:err.message},{status:500})
