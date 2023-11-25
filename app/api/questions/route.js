@@ -17,9 +17,9 @@ export const GET = async ()=>{
 
 export const POST = async (req)=>{
     try{
-        const {id, questionType ,question, optionType ,options } = await req.json();
+        const { category, questionType ,question, score, options } = await req.json();
         await connectDB();
-        await Question.create({id, questionType, question, optionType , options});
+        await Question.create({category ,questionType, question, score , options});
         return NextResponse.json({message:"Question Created"},{status:201})
     }catch(err){
         return NextResponse.json({message:err.message},{status:500})
