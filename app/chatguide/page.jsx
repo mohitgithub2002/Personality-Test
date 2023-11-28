@@ -25,21 +25,21 @@ const Question = ({ question, index, onSelect, isCurrent, isCompleted }) => {
             isCompleted ? 'opacity-50' : 'opacity-100'
           } transition-opacity w-full`}
         >
-          <p className="text-lg sm:text-xl md:text-3xl font-medium mb-2 sm:mb-3 md:mb-4 text-gray-800">{`${index + 1}. ${question}`}</p>
+          <p className="text-lg sm:text-xl md:text-3xl  mb-2 sm:mb-3 md:mb-4 text-black font-quicksand font-medium">{` ${question}`}</p>
           <div className="flex items-center space-x-2">
-          <span className="text-lg sm:text-xl md:text-2xl font-semibold pr-2 text-black">Disagree</span>
+          <span className="text-lg sm:text-xl md:text-2xl font-semibold pr-2 text-black font-quicksand">Disagree</span>
             {options.map((_, idx) => (
           <button
             key={idx}
             className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full ${
-              isCompleted ? 'bg-gray-300' : 'bg-blue-100 hover:bg-blue-200'
-            } focus:outline-none border-[5px] focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 focus-visible:to-blue-500 transition duration-300 ease-in-out`}
+              isCompleted ? 'bg-gray-300' : 'bg-color2 hover:bg-color2'
+            } focus:outline-none border-[5px] focus:border-color1 focus:ring-1 focus:ring-color2 focus:ring-opacity-50 focus-visible:to-blue-500 transition duration-300 ease-in-out`}
             onClick={() => onSelect(index, idx + 1)}
             aria-label={`Option ${idx + 1}`}
             disabled={isCompleted}
           />
         ))}
-            <span className="text-lg sm:text-xl md:text-2xl font-semibold pl-2 text-black">Agree</span>
+            <span className="text-lg sm:text-xl md:text-2xl font-semibold pl-2 text-black font-quicksand">Agree</span>
           </div>
         </div>
       </Transition>
@@ -49,7 +49,7 @@ const Question = ({ question, index, onSelect, isCurrent, isCompleted }) => {
 
 const Questionnaire = () => {
   const router = useRouter();
-  const [questions, setQuestions] = useState(["Lorem Ipsum FIrst Question","Lorem Ipsum Second Question","You can use a random sentence generator to create a sentence to start a story. Some sentence generators include"]);
+  const [questions, setQuestions] = useState([""]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState([]);
   const [percent, setPercent] = useState(0);
@@ -157,7 +157,7 @@ const Questionnaire = () => {
 
   return (
     <div>
-        {loader?<div className='flex flex-col h-screen w-full items-center justify-evenly bg-gray-50'><ScaleLoader color="#2563EB" loading = {loader} /></div>:
+        {loader?<div className='flex flex-col h-screen w-full items-center justify-evenly bg-gray-50'><ScaleLoader color="#B67DFD" loading = {loader} /></div>:
         <div className="flex flex-col h-screen w-full items-center justify-evenly bg-gray-50">
           <div className="pb-4 w-3/5">
             <span id="ProgressLabel" className="sr-only">Loading</span>
@@ -169,7 +169,7 @@ const Questionnaire = () => {
               className="block rounded-full bg-gray-200"
             >
               <span
-                className="block h-4 rounded-full bg-blue-600 text-center text-[10px]/4 transition-all duration-400 ease-linear"
+                className="block h-4 rounded-full bg-gradient-80 from-color1 via-color2 to-color3 text-center text-[10px]/4 transition-all duration-400 ease-linear"
                 style={{width: `${percent}%`}}
               >
                 <span className="font-bold text-white"> {percent}% </span>
@@ -192,7 +192,7 @@ const Questionnaire = () => {
         
         <div className="flex justify-between w-full px-4 sm:px-6 lg:px-8">
           <button
-            className="p-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 disabled:opacity-50"
+            className="p-2 rounded-md bg-gradient-80 from-color1 via-color2 to-color3 text-white hover:bg-blue-600 disabled:opacity-50"
             onClick={handelPrev}
             disabled={currentQuestionIndex === 0}
           >
@@ -200,7 +200,7 @@ const Questionnaire = () => {
           </button>
           {(currentQuestionIndex === questions.length - 1)?
             <button
-            className="p-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 disabled:opacity-50"
+            className="p-2 rounded-md bg-gradient-80 from-color1 via-color2 to-color3 text-white hover:bg-blue-600 disabled:opacity-50"
             onClick={handelSubmit}
             disabled={currentQuestionIndex !== questions.length - 1}
           >
