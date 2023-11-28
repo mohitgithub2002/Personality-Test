@@ -5,10 +5,13 @@ import { NextResponse } from "next/server";
 export const GET = async ()=>{
     try{
         await connectDB();
-
+        let questionsList =[];
         const questions = await Question.find();
-        console.log(questions)
-        return NextResponse.json({status:200, data:questions})
+        questions.forEach(data => {
+            questionsList.push(data.question);
+
+        });
+        return NextResponse.json({status:200, questionsList:questionsList ,data:questions})
     }catch(err){
         console.log (err);
        return NextResponse.json({status:500, json:err})

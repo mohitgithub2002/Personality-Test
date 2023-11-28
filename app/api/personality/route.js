@@ -10,7 +10,7 @@ export const POST = async (req)=>{
         await connectDB();
         const user = await User.findOne({email});
         if(!user){
-            return NextResponse.json({message:"User not found"},{status:404})
+            return NextResponse.json({message:"User not found",status:404})
         }
         console.log("userScore is"+user.score);
         if(!user.score){
@@ -24,10 +24,10 @@ export const POST = async (req)=>{
             user.quizAnswer = answers;
             user.categoryScore = categoryscore;
             await user.save();
-            return NextResponse.json({message:"Test Submitted"},{status:200})
+            return NextResponse.json({data:"Test Submitted",status:200})
         }
         else{
-            return NextResponse.json({message:"Personality already exists"},{status:201})
+            return NextResponse.json({data:"Personality already exists",status:201})
         }
 
 
