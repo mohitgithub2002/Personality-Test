@@ -2,7 +2,7 @@
 
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-
+import Swal from "sweetalert2";
 export function UserDetails() {
     const router = useRouter();
 
@@ -24,8 +24,32 @@ export function UserDetails() {
             });
             const data =await res.json();
             console.log(res, data);
-            if(res.status === 201 || res.status === 400){
-                router.push('/personality-test');
+            if(data.status ===400){
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Already a member',
+                    text: "Already registered please login to continue",
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar:true
+                })
+                setTimeout(()=>{
+                    router.push('/login');
+                },1999)
+                
+            }
+            if(data.status === 201 ){
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Thanks for signup',
+                    text: "Please login to continue",
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar:true
+                })
+                setTimeout(()=>{
+                    router.push('/login');
+                },1999)
             }
         }catch(err){
             console.log(err);
@@ -52,14 +76,14 @@ export function UserDetails() {
         }
     }
   return (
-    <main className="w-full bg-gradient-to-tl  from-rose-400 via-pink-200 to-white h-screen flex flex-col items-center justify-center bg-gray-50 sm:px-4">
+    <main className="w-full bg-gradient-80 from-color1 via-color2 to-color3 h-screen flex flex-col items-center justify-center bg-gray-50 sm:px-4">
             <div className="w-full space-y-6 text-gray-600 sm:max-w-md">
                 <div className="bg-white shadow p-4 py-6 sm:p-6 sm:rounded-lg">
                 <div className="text-center">
                     
                     <div className="mt-5 space-y-2">
                         <h3 className="text-gray-800 text-2xl font-bold sm:text-3xl">Create an account</h3>
-                        <p className="">Already have an account? <a href="/login" className="font-medium text-pink-600 hover:text-pink-500">Log in</a></p>
+                        <p className="">Already have an account? <a href="/login" className="font-medium text-color3 hover:opacity-60">Log in</a></p>
                     </div>
                 </div>
                     <form
@@ -76,7 +100,7 @@ export function UserDetails() {
                                 type="text"
                                 placeholder="Harry Potter"
                                 required
-                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-pink-600 shadow-sm rounded-lg"
+                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-color1 shadow-sm rounded-lg"
                             />
                         </div>
                         <div>
@@ -88,7 +112,7 @@ export function UserDetails() {
                                 name="email"
                                 placeholder="harrypotter@example.com"
                                 required
-                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-pink-600 shadow-sm rounded-lg"
+                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-color1 shadow-sm rounded-lg"
                             />
                         </div>
                         <div>
@@ -100,17 +124,17 @@ export function UserDetails() {
                                 name="password"
                                 placeholder="********"
                                 required
-                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-pink-600 shadow-sm rounded-lg"
+                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-color1 shadow-sm rounded-lg"
                             />
                         </div>
                         <button
-                            className="w-full px-4 py-2 text-white font-medium bg-pink-600 hover:bg-pink-500 active:bg-pink-600 rounded-lg duration-150"
+                            className="w-full px-4 py-2 text-white font-medium bg-gradient-80 from-color1 via-color2 to-color3 hover:scale-105 active:bg-pink-600 rounded-lg duration-150"
                         >
                             Create account
                         </button>
                     </form>
                     <div className="mt-5">
-                        <button onClick={handelGoogle} className="w-full flex items-center justify-center gap-x-3 py-2.5 mt-5 border rounded-lg text-sm font-medium hover:bg-gray-50 duration-150 hover:border-pink-600 active:bg-gray-100">
+                        <button onClick={handelGoogle} className="w-full flex items-center justify-center gap-x-3 py-2.5 mt-5 border rounded-lg text-sm font-medium hover:bg-gray-50 duration-150 hover:border-color1 active:bg-gray-100">
                             <svg className="w-5 h-5" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clipPath="url(#clip0_17_40)">
                                     <path d="M47.532 24.5528C47.532 22.9214 47.3997 21.2811 47.1175 19.6761H24.48V28.9181H37.4434C36.9055 31.8988 35.177 34.5356 32.6461 36.2111V42.2078H40.3801C44.9217 38.0278 47.532 31.8547 47.532 24.5528Z" fill="#4285F4" />

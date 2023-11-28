@@ -76,7 +76,7 @@ export const authOption = {
       
               return true; // Continue the sign-in process
             }
-            return false; // Don't sign in if not Google provider
+            return true; // Don't sign in if not Google provider
         },
     },
     session: {
