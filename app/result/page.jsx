@@ -59,6 +59,7 @@ export default function Results() {
      <div>
       {loader?<div className='flex flex-col h-screen w-full items-center justify-evenly bg-gray-50'><ScaleLoader color="#B67DFD" loading = {loader} /></div>
         :
+      <div className="w-4/5 ">
         <main className="min-h-screen w-full flex flex-col px-4sm:px-10 items-center justify-center bg-gray-50 ">
         <div className="  text-xl sm:text-2xl md:text-4xl lg:text-6xl text-black py-10 flex items-start">
             <h1>Your Profile</h1>
@@ -86,6 +87,8 @@ export default function Results() {
         {/* </div> */}
         
       </main>
+        </div>
+        
       }
      </div>
 

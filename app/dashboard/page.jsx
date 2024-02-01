@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import Image from "next/image"
 import {checkUser} from "@/utils/auth"
 import { signOut } from "next-auth/react"
-import QuizComponent from "@/components/questionpage"
+// import QuizComponent from "@/components/questionpage"
 export default function Dashboard (){
     
     const [user,setUser] = useState(null)
@@ -27,7 +27,7 @@ export default function Dashboard (){
             <h2>{user?user.personality:null}</h2>
 
             <button onClick={()=>signOut()}>Logout</button> */}
-        <QuizComponent/>
+        {/* <QuizComponent/> */}
         </div>
     )
 }

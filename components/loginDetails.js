@@ -4,13 +4,17 @@ import Link from "next/link"
 import { signIn } from "next-auth/react"
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { BeatLoader } from "react-spinners";
 
 export default function LoginDetails() {
     const router = useRouter();
+    console.log(router);
     const [error, setError] = useState(null);
+    const [loader, setLoader] =useState(false);
     const handleSubmit = async(e) => {
         e.preventDefault();
         try{
+            setLoader(true);
             const res = await signIn("credentials",{
                 email: e.target.email.value,
                 password: e.target.password.value,
@@ -18,16 +22,19 @@ export default function LoginDetails() {
             });
 
             if(res.error){
+                setLoader(false);
                 setError("Invalid credentials");
                 console.log("Invalid credentials");
             }else{
                 console.log(res);
-                router.replace('dashboard');
+                router.push('chatguide');
             }
+            
             console.log(res);
 
 
         }catch(err){
+            setLoader(false);
             console.log(err);
         }
     }
@@ -42,7 +49,7 @@ export default function LoginDetails() {
                 console.log("Invalid credentials");
             }else{
                 console.log(res);
-                router.replace('dashboard');
+                router.push('chatguide');
             }
             console.log(res);
         }catch(err){
@@ -97,7 +104,7 @@ export default function LoginDetails() {
                         <button
                             className="w-full px-4 py-2 text-white font-medium bg-gradient-80 from-color1 via-color2 to-color3 hover:scale-105 active:bg-pink-600 rounded-lg duration-150"
                         >
-                            Login
+                            {loader?<BeatLoader color="white" size={10} />:"Login"}
                         </button>
                     </form>
                     <div className="mt-5">

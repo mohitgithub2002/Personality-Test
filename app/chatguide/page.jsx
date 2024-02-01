@@ -54,8 +54,7 @@ const Questionnaire = () => {
   const [answers, setAnswers] = useState([]);
   const [percent, setPercent] = useState(0);
   const [user, setUser] = useState(); 
-  const [loader,setLoader] = useState(false);
-  
+  const [loader,setLoader] = useState(true);
   const getUser = async()=>{
     const user =  await checkUser();
     setUser(user);
@@ -67,10 +66,17 @@ const Questionnaire = () => {
 
   useEffect(() => {
     const fetchQuestions = async () => {
-      const res = await fetch("api/questions");
-      const data = await res.json();
-      console.log(data.questionsList);
-      setQuestions(data.questionsList);
+      try{
+        setLoader(true);
+        const res = await fetch("api/questions");
+        const data = await res.json();
+        console.log(data.questionsList);
+        setQuestions(data.questionsList);
+        setLoader(false);
+      }catch(error){
+        setLoader(false);
+        console.log(error);
+      }
     };
     fetchQuestions();
   }, []);
@@ -125,11 +131,11 @@ const Questionnaire = () => {
       text: "Test submitted successfully",
       icon: "success",
       timerProgressBar: true,
-      timer: 2500
+      timer: 2000
       })
       setTimeout(()=>{
-        router.push("/dashboard");
-      },2500)
+        router.push("/result");
+      },2000)
     }
     else if(data.status ===201){
       Swal.fire({
@@ -137,11 +143,11 @@ const Questionnaire = () => {
         text: "Test already submitted",
         icon: "info",
         timerProgressBar: true,
-        timer: 2500,
+        timer: 2000,
       });
       setTimeout(()=>{
-        router.push("/dashboard");
-      },2500)
+        router.push("/result");
+      },2000)
     }
     else{
       Swal.fire({

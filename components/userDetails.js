@@ -2,13 +2,16 @@
 
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { BeatLoader } from "react-spinners";
 import Swal from "sweetalert2";
 export function UserDetails() {
     const router = useRouter();
-
+    const [loader,setLoader] = useState(false);
     const handleSubmit = async(e) => {
         e.preventDefault();
         try{
+            setLoader(true);
             const res = await fetch('/api/register',{
                 method : 'POST',
                 headers:{
@@ -25,6 +28,7 @@ export function UserDetails() {
             const data =await res.json();
             console.log(res, data);
             if(data.status ===400){
+                setLoader(false);
                 Swal.fire({
                     icon: 'info',
                     title: 'Already a member',
@@ -39,6 +43,7 @@ export function UserDetails() {
                 
             }
             if(data.status === 201 ){
+                setLoader(false);
                 Swal.fire({
                     icon: 'success',
                     title: 'Thanks for signup',
@@ -52,6 +57,7 @@ export function UserDetails() {
                 },1999)
             }
         }catch(err){
+            setLoader(false);
             console.log(err);
         }
         console.log("Submitted");
@@ -130,7 +136,7 @@ export function UserDetails() {
                         <button
                             className="w-full px-4 py-2 text-white font-medium bg-gradient-80 from-color1 via-color2 to-color3 hover:scale-105 active:bg-pink-600 rounded-lg duration-150"
                         >
-                            Create account
+                            {loader?<BeatLoader color="white" size={10} />:"Create account"}
                         </button>
                     </form>
                     <div className="mt-5">
