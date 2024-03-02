@@ -1,7 +1,8 @@
 import User from "@/models/UserSchema";
 import { connectDB } from "@/utils/mongodb";
 import { NextResponse } from "next/server";
-
+import Personality from "./aboutPersonality";
+import dichotomy from "./dichotmy";
 export const POST = async (req)=>{
     
     try{
@@ -11,11 +12,21 @@ export const POST = async (req)=>{
         if(!user){
             return NextResponse.json({message:"User not found"},{status:404})
         }
-        const userScore = user.score;
+        
         const categoryScore = user.categoryScore;
+        const score = user.score;
+        const about = "You are a person who is";
+        const aboutCategory = ["Energized by the outer world","Energized by the inner world","Absorbed in the present","Absorbed in the future","Focused on the present"];
         return NextResponse.json({data:{
-            userScore,
-            categoryScore
+            // personalityType,
+            // personalitySymbol,
+            // aboutPersonality,
+            score,
+            about,
+            categoryScore,
+            aboutCategory
+            // traits,
+            // traitAbout
         }},{status:200}
         )
  

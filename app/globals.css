@@ -2,7 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 @import '@fontsource/quicksand';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+
+@font-face {
+  font-family: 'TestCalibre' ;
+  src: url("/public/assets/TestCalibre-RegularItalic.otf")  format('opentype');
+}
+
+
+@font-face {
+  font-family: 'TestCalibre' ;
+  src: url("/public/assets/TestCalibre-SemiboldItalic.otf")  format('opentype');
+}
 
 :root {
   --foreground-rgb: 0, 0, 0;

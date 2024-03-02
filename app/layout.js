@@ -1,7 +1,7 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import {AuthProvider} from './provider'
-import Navbar from '@/components/navbar'
+import Navbar from '@/components/nav'
 const inter = Inter({ subsets: ['latin'] })
 export const metadata = {
   title: 'Create Next App',
@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <AuthProvider>
-          {/* <Navbar /> */}
+          <Navbar />
           {children}
         </AuthProvider>
       </body>

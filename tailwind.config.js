@@ -1,3 +1,5 @@
+const { Fredoka } = require('next/font/google');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -14,13 +16,40 @@ module.exports = {
         'gradient-80': 'linear-gradient(80deg, var(--tw-gradient-stops))'
       },
       colors: {
-        color1: "#B67DFD",
+        color1: "#5E35B1",
         color2: "#FF89BA",
-        color3: "#FFC17C"
-      }
+        color3: "#FFC17C",
+        gold: "#FFD700",
+        primary: "#E5E5E5",
+        lavender: "#F25E62",
+        myblue: "#7DF9FF",
+        myblack: "#151515",
+        black:"#0F0A0A",
+        agreeColor: "#913BD2",
+        disagreeColor: "#2779A7",
+        lpurple: "#F5EDFC",
+        lblue: "#E9F1F6",
+        lorange:"#FCF2EA",
+        lgreen: "#E6F2EB",
+        dgreen: "#0b843e",
+        dorange: "#e0822f",
+        dblue: "#2779a7",
+        dpurple: "#9b51e0",
+
+
+
+      },
+      fontFamily: {
+        quicksand: ['Quicksand', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
+        fredoka:['Fredoka', 'cursive'],
+        TestCalibre: ['TestCalibre', 'Fredoka'],
+        TestCalibre: ['TestCalibre', 'Poppins'],
+      },
     },
-    fontFamily: {
-      quicksand: ['Quicksand', 'sans-serif'],
+    backgroundImage: {
+      'my-image': "url('/public/holdinghands.svg')",
     },
     
   },

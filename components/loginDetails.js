@@ -58,9 +58,9 @@ export default function LoginDetails() {
     }
 
     return (
-        <main className="w-full h-screen bg-gradient-80 from-color1 via-color2 to-color3 flex flex-col items-center justify-center bg-gray-50 sm:px-4">
+        <main className="w-full h-screen  flex flex-col items-center justify-center bg-white sm:px-4">
             <div className="w-full space-y-6 text-gray-600 sm:max-w-md">
-                <div className="bg-white shadow p-4 py-6 sm:p-6 sm:rounded-lg">
+                <div className="bg-primary shadow p-4 py-6 sm:p-6 sm:rounded-lg">
                 <div className="text-center">
                     
                     <div className="mt-5 space-y-2">
@@ -84,7 +84,7 @@ export default function LoginDetails() {
                                 type="email"
                                 placeholder="harrypotter@example.com"
                                 required
-                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-color1 shadow-sm rounded-lg"
+                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-black shadow-sm rounded-lg"
                             />
                         </div>
                         <div>
@@ -96,19 +96,19 @@ export default function LoginDetails() {
                                 type="password"
                                 placeholder="********"
                                 required
-                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-color1 shadow-sm rounded-lg"
+                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-black shadow-sm rounded-lg"
                             />
                         </div>
                         {/* error div */}
                         {error && <div className="text-red-500">{error}</div>}
                         <button
-                            className="w-full px-4 py-2 text-white font-medium bg-gradient-80 from-color1 via-color2 to-color3 hover:scale-105 active:bg-pink-600 rounded-lg duration-150"
+                            className="w-full px-4 py-2 text-white font-medium bg-black hover:scale-105 active:bg-pink-600 rounded-lg duration-150"
                         >
                             {loader?<BeatLoader color="white" size={10} />:"Login"}
                         </button>
                     </form>
                     <div className="mt-5">
-                        <button onClick={handelGoogle} className="w-full flex items-center justify-center gap-x-3 py-2.5 mt-5 border rounded-lg text-sm font-medium hover:bg-gray-50 hover:border-color1 duration-150 active:bg-gray-100">
+                        <button onClick={handelGoogle} className="w-full flex items-center justify-center gap-x-3 py-2.5 mt-5 border rounded-lg text-sm font-medium hover:bg-gray-50 hover:border-black duration-150 active:bg-gray-100">
                             <svg className="w-5 h-5" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clipPath ="url(#clip0_17_40)">
                                     <path d="M47.532 24.5528C47.532 22.9214 47.3997 21.2811 47.1175 19.6761H24.48V28.9181H37.4434C36.9055 31.8988 35.177 34.5356 32.6461 36.2111V42.2078H40.3801C44.9217 38.0278 47.532 31.8547 47.532 24.5528Z" fill="#4285F4" />

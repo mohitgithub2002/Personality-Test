@@ -17,6 +17,7 @@
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.17",
     "framer-motion": "^10.16.5",
+    "js-cookie": "^3.0.5",
     "mongodb": "^6.2.0",
     "mongoose": "^7.4.3",
     "next": "13.4.17",

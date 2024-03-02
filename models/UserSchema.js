@@ -15,7 +15,9 @@ const userSchema = new Schema({
         type:String,
         
     }],
-    score: Number,  // This Score is from 100
+    personalityType: String,  // This is from 16 personalities
+    personalitySymbol: String, //personality code
+    score: Number,
     categoryScore:[{
         type:Number
     }]

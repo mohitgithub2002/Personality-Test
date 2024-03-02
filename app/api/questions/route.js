@@ -2,19 +2,22 @@ import Question from "@/models/questionSchema";
 import { connectDB } from "@/utils/mongodb";
 import { NextResponse } from "next/server";
 
-export const GET = async ()=>{
-    try{
+export const GET = async () => {
+    try {
         await connectDB();
-        let questionsList =[];
+        let questionsList = [];
         const questions = await Question.find();
         questions.forEach(data => {
-            questionsList.push(data.question);
-
+            const categoryIndex = data.category - 1;
+            if (!questionsList[categoryIndex]) {
+                questionsList[categoryIndex] = [];
+            }
+            questionsList[categoryIndex].push(data.question);
         });
-        return NextResponse.json({status:200, questionsList:questionsList ,data:questions})
-    }catch(err){
-        console.log (err);
-       return NextResponse.json({status:500, json:err})
+        return NextResponse.json({ status: 200, questionsList: questionsList, data: questions });
+    } catch (err) {
+        console.log(err);
+        return NextResponse.json({ status: 500, json: err });
     }
 }
 
