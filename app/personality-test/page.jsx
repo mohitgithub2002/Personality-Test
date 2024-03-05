@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image";
-import data from "../../hardData/questions.json"
+// import data from "../../hardData/questions.json"
 import { useState, useEffect } from "react"
 export default function PersonalityTestPage() {
     const [percent, setPercent] = useState(0);
@@ -13,8 +13,8 @@ export default function PersonalityTestPage() {
     const [disableNext, setDisableNext] = useState(false);
     const [isSubmit, setIsSubmit] = useState(false);
     const [error, setError] = useState(false);
-    const length = data.questions.length;
-    const options = data.questions[questionNo].options;
+    // const length = data.questions.length;
+    // const options = data.questions[questionNo].options;
     console.log("selected option > "+answer);
     
     useEffect(()=>{
@@ -110,7 +110,7 @@ export default function PersonalityTestPage() {
                             </span>
                         </span>
                     </div>
-                    <h1 className=" text-4xl text-black font-bold mb-4" >{data.questions[questionNo].question}</h1>
+                    {/* <h1 className=" text-4xl text-black font-bold mb-4" >{data.questions[questionNo].question}</h1> */}
                     <div className=" text-lg font-medium mb-4" >
                     <ul className="mt-6 space-y-3">
                         {
