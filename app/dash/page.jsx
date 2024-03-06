@@ -39,7 +39,7 @@ const Card = ({  title, category, description, _id }) => {
   return (
     <div className="bg-white p-4 rounded-lg shadow-md transition duration-300 transform hover:scale-105  w-300 h-450" >
       {/* <img src={image} alt={testName} className="mb-4 rounded-md"/> */}
-      <Image src="/next.svg" width={100} height={100}/>
+      <Image src="/next.svg" width={100} height={100} alt='logo'/>
       <h3 className="text-xl font-bold mb-4 h-8 ">{title}</h3>
       <p  className={`text-gray-500 mb-2 p-1 text-xs max-w-fit ${Colors.text} ${Colors.background}  `}>{category} </p>
       <p className="text-gray-600 mb-4">{description}</p>
@@ -121,7 +121,7 @@ const Test =  () => {
             className={'px-2 py-1 m-1 md:px-4 md:py-2 md:m-2 text-yellow-500 border border-yellow-500 hover:bg-yellow-700 hover:text-white active:bg-yellow-700 active:text-white rounded-md'}
           >
             {/* {tests[0].category} */}
-            "one"
+            one
           </button>
         
           <button

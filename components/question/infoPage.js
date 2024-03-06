@@ -4,7 +4,7 @@ export const InfoPage = ({setName, setEmail,setMobile, handelSubmit }) => {
     <div className="bg-white h-screen flex flex-col items-center justify-around">
         <div className="bg-gray-100 text-gray-800 p-8 max-w-6xl shadow-lg rounded-md">
             <div className=" border-b-2 border-gray-400">
-                <h1 className="text-4xl font-bold text-center mb-4">Let's Review Your Results 🎉</h1>
+                <h1 className="text-4xl font-bold text-center mb-4">Let&apos;s Review Your Results 🎉</h1>
                 <p className="text-center mb-8">Thanks for completing the assessment - We hope that the results will provide you with valuable insights and a deeper understanding of yourself.
                 Please fill the details to get the result</p>
             </div>
