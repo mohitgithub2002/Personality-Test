@@ -44,7 +44,7 @@ const Card = ({  title, category, description, _id }) => {
       <p  className={`text-gray-500 mb-2 p-1 text-xs max-w-fit ${Colors.text} ${Colors.background}  `}>{category} </p>
       <p className="text-gray-600 mb-4">{description}</p>
       
-      <Link className="flex justify-between" href={`/tests/${_id}`}>
+      <Link className="flex justify-between" href={`/test/${_id}`}>
         <button  className="bg-blue-500 text-white px-4 py-2 rounded-md">Take Test</button>
         {/* <button onClick={onViewResult} className="bg-green-500 text-white px-4 py-2 rounded-md">View Result</button> */}
       </Link>
