@@ -1,5 +1,4 @@
 const { Fredoka } = require('next/font/google');
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -25,8 +24,10 @@ module.exports = {
         myblue: "#7DF9FF",
         myblack: "#151515",
         black:"#0F0A0A",
-        agreeColor: "#913BD2",
-        disagreeColor: "#2779A7",
+        // agreeColor: "#913BD2",
+        // disagreeColor: "#2779A7",
+        agreeColor: "#FF6B6B",
+        disagreeColor: "#4ECDC4",
         lpurple: "#F5EDFC",
         lblue: "#E9F1F6",
         lorange:"#FCF2EA",
@@ -35,7 +36,7 @@ module.exports = {
         dorange: "#e0822f",
         dblue: "#2779a7",
         dpurple: "#9b51e0",
-
+        bannerColor: "#622569"
 
 
       },
