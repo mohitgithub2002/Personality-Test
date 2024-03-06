@@ -74,7 +74,7 @@ export function UserDetails() {
                 console.log("Invalid credentials");
             }else{
                 console.log(res);
-                router.replace('dashboard');
+                router.push('/dash');
             }
             console.log(res);
         }catch(err){

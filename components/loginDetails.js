@@ -49,7 +49,7 @@ export default function LoginDetails() {
                 console.log("Invalid credentials");
             }else{
                 console.log(res);
-                router.push('chatguide');
+                router.push('/dash');
             }
             console.log(res);
         }catch(err){
