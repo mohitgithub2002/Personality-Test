@@ -9,9 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.0",
     "@fontsource/quicksand": "^5.0.15",
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
+    "@mui/x-charts": "^6.19.5",
     "autoprefixer": "10.4.15",
     "bcryptjs": "^2.4.3",
     "eslint": "8.47.0",

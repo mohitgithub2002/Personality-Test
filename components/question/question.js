@@ -1,11 +1,13 @@
+"use client"
 import Image from "next/image";
+import { useState } from "react";
 export const Question = ({ questionText, onSelect }) => {
     // State to handle the selected option
-    // const [selected, setSelected] = useState(null);
+    const [selected, setSelected] = useState(null);
   
     // Function to handle option select
     const handleSelect = (index) => {
-    //   setSelected(index);
+      setSelected(index);
       onSelect(index);
     };
   
@@ -18,18 +20,18 @@ export const Question = ({ questionText, onSelect }) => {
     };
   
     const buttonColorClass = (index) => {
-      if (index === 0 || index === 1 || index === 2) return 'border-2 border-agreeColor hover:bg-agreeColor'; // Bigger size for first and last button
-      if (index === 4 || index === 5 || index === 6) return 'border-2 border-disagreeColor hover:bg-disagreeColor'; // Intermediate size
+      if (index === 0 || index === 1 || index === 2) return (index===selected?'bg-agreecolor': 'border-2 border-agreeColor hover:bg-agreeColor'); // Bigger size for first and last button
+      if (index === 4 || index === 5 || index === 6) return (index===selected?'bg-disagreecolor': 'border-2 border-disagreeColor hover:bg-disagreeColor'); // Intermediate size
       return  'border-2 border-gray-300 hover:bg-gray-300';; // Default size for middle buttons
     }
   
     return (
       <div className='m-8'>
         <div className=" flex flex-col items justify-around  ">
-        <div className="text-gray-800 text-base md:text-4xl mb-8 text-center">{questionText}</div>
-        <div className="flex justify-center max-h-72"><Image src="/heart.jpeg" width={500} height={200} alt= "question_guide" className=" items-center" priority={false}  /></div>
-        <div className="flex justify-between items-center my-4">
-          <h2 className='text-agreeColor text-xs md:text-2xl  '>Disagree</h2>
+        <div className="text-gray-800 text-lg font-bold md:text-4xl md:font-semibold mb-8 text-center tracking-tight">{questionText}</div>
+        {/* <div className="flex justify-center max-h-72"><Image src="/heart.jpeg" width={500} height={200} alt= "question_guide" className=" items-center" priority={false}  /></div> */}
+        <div className="flex justify-between items-center my-4 mb-4">
+          <h2 className='text-agreeColor text-xs md:text-2xl '>Disagree</h2>
           {[...Array(7)].map((_, index) => (
             <button
               key={index}
@@ -43,6 +45,5 @@ export const Question = ({ questionText, onSelect }) => {
         </div>
       </div>
       </div>
-      
     );
 };

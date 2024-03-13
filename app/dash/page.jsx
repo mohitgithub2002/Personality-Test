@@ -6,48 +6,26 @@ import Link from 'next/link';
 
 const Card = ({  title, category, description, _id }) => {
 
-  const categoryColors = {
-    'Emotional Intelligence': {
-      text: 'text-blue-800',
-      background: 'bg-blue-200',
-    },
-    'Communication Style': {
-      text: 'text-orange-800',
-      background: 'bg-orange-200',
-    },
-    'Leadership Aptitude': {
-      text: 'text-yellow-800',
-      background: 'bg-yellow-200',
-    },
-    'Creativity and Innovation': {
-      text: 'text-purple-800',
-      background: 'bg-purple-200',
-    },
-    'Decision-Making Proficiency': {
-      text: 'text-green-800',
-      background: 'bg-green-200',
-    },
-    'Time Management': {
-      text: 'text-pink-800',
-      background: 'bg-pink-200',
-    },
-    // Add more categories and colors as needed
-  };
- 
-  const Colors = categoryColors[category] || 'bg-gray-500';
+  
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow-md transition duration-300 transform hover:scale-105  w-300 h-450" >
-      {/* <img src={image} alt={testName} className="mb-4 rounded-md"/> */}
-      <Image src="/next.svg" width={100} height={100} alt='logo'/>
-      <h3 className="text-xl font-bold mb-4 h-8 ">{title}</h3>
-      <p  className={`text-gray-500 mb-2 p-1 text-xs max-w-fit ${Colors.text} ${Colors.background}  `}>{category} </p>
-      <p className="text-gray-600 mb-4">{description}</p>
+    <div className="bg-white  p-6 rounded-lg shadow-lg transition duration-300 transform hover:scale-105  w-300 h-450" >
+      <div className='flex flex-col justify-around'>
+        <Image src="/heart.png" width={50} height={50} alt='logo' className='my-2'/>
+        <div className='my-4'>
+          <h3 className="text-xl md:text-2xl font-bold  text-gray-700 ">{title}</h3>
+          <p  className={`text-gray-500  p-1 text-xs max-w-fit  `}>{category} </p>
+          <p className="text-gray-600 ">{description}</p>
+        </div>
+        
+        
+        <Link className="flex justify-between my-2" href={`/test/${_id}`}>
+          <button  className="bg-blue-500 text-white px-4 py-2 rounded-md">Take Test</button>
+          {/* <button onClick={onViewResult} className="bg-green-500 text-white px-4 py-2 rounded-md">View Result</button> */}
+        </Link>
+      </div>
+
       
-      <Link className="flex justify-between" href={`/test/${_id}`}>
-        <button  className="bg-blue-500 text-white px-4 py-2 rounded-md">Take Test</button>
-        {/* <button onClick={onViewResult} className="bg-green-500 text-white px-4 py-2 rounded-md">View Result</button> */}
-      </Link>
     </div>
   );
 };
@@ -56,7 +34,7 @@ const Card = ({  title, category, description, _id }) => {
 
 const CardList = ({ tests }) => {
   return (
-    <div  className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-y-8 gap-x-6 m-8 md:m-20">
+    <div  className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-y-8 gap-x-6 mt-8 mx-8 md:mt-20 md:mx-20 py-8">
       {tests.map((test, index) => (
         <div key={index} className="">
           <Card {...test} />
@@ -89,10 +67,10 @@ const Test =  () => {
   const filteredCards = selectedType === 'All' ? tests : tests.filter((test) => test.category === selectedType);
 
   return (
-    <div className="container ">
-      <div className= "flex flex-col items-center justify-center bg-stone-500 py-16 px-8">
-        <h1 className="text-4xl md:text-6xl font-bold mt-10 text-center">Tools for better thinking</h1>
-        <p className="mt-6 text-lg md:text-xl text-center">Thinking tools and frameworks to help you solve problems, make decisions and understand systems.</p>
+    <div className=" h-full bg-stone-100">
+      <div className= "flex flex-col items-center justify-center bg-stone-300 py-16 px-8">
+        <h1 className="text-4xl md:text-6xl font-bold mt-10 text-center text-gray-700">Tools for better thinking</h1>
+        <p className="mt-6 text-lg md:text-xl text-center text-gray-700">Thinking tools and frameworks to help you solve problems, make decisions and understand systems.</p>
         
       
         
@@ -103,7 +81,7 @@ const Test =  () => {
 
 
      <div id="tools" className="mt-8">
-        <h2 className=" text-center text-3xl font-bold">Curated collection of thinking tools</h2>
+        <h2 className=" text-center text-3xl font-bold text-gray-700">Curated collection of thinking tools</h2>
     
         <div className="flex flex-wrap items-center justify-center mt-8 ml-5 mb-16 ">
           

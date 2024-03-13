@@ -3,6 +3,7 @@
 import {  getSession } from "next-auth/react"
 import Cookies from "js-cookie";
 export async function checkUser() {
+    
     const session = await getSession();
     console.log("user Email",session?.user?.email)
     if(session?.user?.email){

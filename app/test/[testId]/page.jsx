@@ -82,9 +82,9 @@ const Test = ({params}) => {
         visible: { 
             y: 0, 
             opacity: 1, 
-            transition: { type: 'smooth' ,duration: 0.7} 
+            transition: { type: 'smooth' ,duration: 0.7, } 
         },
-        exit: { y: '-100vw', opacity: 0, transition: { duration: 0.9 } }
+        exit: { y: '-100vw', opacity: 0, transition: {  delay: 0.5 } }
     }
     // Function to submit the test
     const handelSubmit = async()=>{
@@ -128,7 +128,7 @@ const Test = ({params}) => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            exit="exit" // Use exit property for exiting animation
+            // exit="exit" // Use exit property for exiting animation
             layout // Enable automatic layout animation
         >
             <Question questionText={currentQuestion.question} onSelect={(index) => handelSelection(index)} />
