@@ -51,7 +51,7 @@ const Result = ({params}) => {
         </div>
         <div className=" pt-10 mx-auto px-4 md:flex items-center justify-evenly bg-gray-100">
           <div className="text-start px-8 md:px-16">
-            <h1 className="text-3xl font-bold mb-4 text-black">You didn't do too bad...</h1>
+            <h1 className="text-3xl font-bold mb-4 text-black">You didn&apos;t do too bad...</h1>
             <p className="text-xl mb-4 text-black ">
               Your results indicate that you have a generally healthy relationship, but there
               may be some areas for improvement. There may be some communication breakdowns,
