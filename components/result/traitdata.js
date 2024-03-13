@@ -20,22 +20,22 @@ const TraitData = ({trait, traitScore}) => {
         </div>
   
         <p className="text-sm text-gray-600 mb-4">
-          You didn't get the best results here dfghjk. Your result indicates that there are some trust issues that need to be addressed in your relationship.
+          You didn&apos;t get the best results here dfghjk. Your result indicates that there are some trust issues that need to be addressed in your relationship.
         </p>
   
         <p className="text-sm text-gray-600 mb-4">
-          Trust is a foundational aspect of any healthy relationship. When you can rely on each other to be honest, reliable, and supportive of each other's needs and boundaries, you are able to build a better and stronger emotional connection and navigate life's challenges together. Trust can also help you and your partner feel safe and secure in your relationship, which can promote greater happiness and fulfillment.
+          Trust is a foundational aspect of any healthy relationship. When you can rely on each other to be honest, reliable, and supportive of each other&apos;s needs and boundaries, you are able to build a better and stronger emotional connection and navigate life&apos;s challenges together. Trust can also help you and your partner feel safe and secure in your relationship, which can promote greater happiness and fulfillment.
         </p>
   
         <p className="text-sm text-gray-600 mb-4">
-          Trust issues can be a significant challenge in any relationship, and it's important to address them in a healthy and constructive way.
+          Trust issues can be a significant challenge in any relationship, and it&apos;s important to address them in a healthy and constructive way.
         </p>
   
         <ul className="list-disc pl-5 space-y-2">
-          <li className="text-sm text-gray-600">Be honest and transparent with your partner, even when it's uncomfortable or challenging.</li>
+          <li className="text-sm text-gray-600">Be honest and transparent with your partner, even when it&apos;s uncomfortable or challenging.</li>
           <li className="text-sm text-gray-600">Acknowledge any past betrayals or trust violations, and work together to address them constructively.</li>
           <li className="text-sm text-gray-600">Prioritise building reliability and accountability in your relationship, and keep your promises to your partner.</li>
-          <li className="text-sm text-gray-600">Be respectful of your partner's boundaries and needs, and seek to understand them better.</li>
+          <li className="text-sm text-gray-600">Be respectful of your partner&apos;s boundaries and needs, and seek to understand them better.</li>
           <li className="text-sm text-gray-600">Take time to build shared positive experiences that can help deepen your connection and foster trust.</li>
         </ul>
       </div>
