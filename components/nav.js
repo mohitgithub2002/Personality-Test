@@ -18,7 +18,7 @@ const Navbar = () => {
     Cookies.remove('user');
   }
   return(
-    <nav className="bg-white border-gray-200 shadow-black drop-shadow-xl">
+    <nav className="bg-white fixed top-0 left-0 right-0 z-50">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <Link href="https://relationshipplus.xyz/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img src="/logo1.png" className="h-10" alt="Relationship plus Logo"/>

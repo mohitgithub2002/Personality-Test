@@ -122,7 +122,7 @@ const Test = () => {
     <div>
         {lastPage? <InfoPage setName= {setName} setEmail= {setEmail} setMobile = {setMobile} handelSubmit = {handelSubmit} />
         :
-        <div className="flex flex-col items-center justify-center min-h-[90vh] bg-gray-100">
+        <div className="flex flex-col items-center justify-center h-screen bg-white">
         {/* Question component */}
         <div className="w-full md:w-5/6 h-3/5 overflow-hidden relative" >
             <motion.div 
@@ -140,12 +140,12 @@ const Test = () => {
 
       {/* shows the progress of the test */}
       <div className="w-full fixed bottom-0 left-0" >
-        <div className="bg-bannerColor text-white text-center py-2 ">
+        <div className="bg-black text-white text-center py-2 ">
           {(((pageIndex)/questions.length)*100).toFixed()}% Completed!
-        </div>
         {/* add progress bar */}
         
         <ProgressBar completedPercentage={((pageIndex)/questions.length)*100} />
+        </div>
       </div>
         </div>
         }
@@ -162,13 +162,16 @@ const Test = () => {
 // progress bar component
 const ProgressBar = ({completedPercentage})=>{
     return(
-        <div className="w-full bg-gray-700">
-            <motion.div className="bg-gray-200 h-2"  
+        <div className="flex justify-center items-center">
+            <div className="w-3/4 flex bg-gray-700 rounded-l-xl rounded-r-xl">
+            <motion.div className="bg-gray-200 h-2 rounded-l-xl"  
             initial={{ width: 0 }} // Start from 0 width
             animate={{ width: `${completedPercentage}%` }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             ></motion.div>
         </div>
+        </div>
+        
     )
 }
 
@@ -192,13 +195,13 @@ const Question = ({ questionText, onSelect }) => {
       if (index === 0 || index === 6) return 'h-8 w-8 md:h-12 md:w-12 '; // Bigger size for first and last button
       if (index === 1 || index === 5) return 'h-7 w-7 md:h-10 md:w-10'; // Intermediate size
       if (index === 2 || index === 4) return 'h-6 w-6 md:h-8 md:w-8'; // Intermediate size
-      return 'h-3 w-3 md:h-6 md:w-6'; // Default size for middle buttons
+      return 'h-5 w-5 md:h-7 md:w-7'; // Default size for middle buttons
     };
   
     const buttonColorClass = (index) => {
       if (index === 0 || index === 1 || index === 2) return (index===selected?'bg-agreeColor': 'border-4 border-agreeColor hover:bg-agreeColor'); // Bigger size for first and last button
       if (index === 4 || index === 5 || index === 6) return (index===selected?'bg-disagreeColor': 'border-4 border-disagreeColor hover:bg-disagreeColor'); // Intermediate size
-      return  'border-2 border-gray-300 hover:bg-gray-300';; // Default size for middle buttons
+      return  'border-4 border-gray-300 hover:bg-gray-300';; // Default size for middle buttons
     }
 
 
@@ -208,7 +211,7 @@ const Question = ({ questionText, onSelect }) => {
     return (
       <div className='m-8'>
         <div className=" flex flex-col items justify-around  ">
-        <div className="text-gray-800 text-lg font-bold md:text-4xl md:font-semibold mb-8 text-center tracking-tight border-2 border-black rounded-tl-3xl rounded-br-3xl rounded px-4 py-16 bg-white">{questionText}</div>
+        <div className="text-gray-800 text-lg font-bold md:text-4xl md:font-semibold mb-8 text-center tracking-tight  rounded-tl-3xl rounded-br-3xl rounded px-4 py-16 bg-white shadow-2xl">{questionText}</div>
         {/* <div className="flex justify-center max-h-72"><Image src="/heart.jpeg" width={500} height={200} alt= "question_guide" className=" items-center" priority={false}  /></div> */}
         <div>
             <div className="flex justify-between items-center my-4 mb-4">
