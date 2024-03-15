@@ -1,6 +1,6 @@
 "use client"
 import {SessionProvider} from "next-auth/react"
-
+import { checkUser } from "@/utils/auth"
 export const AuthProvider = ({children}) => {
     return(
         <SessionProvider>

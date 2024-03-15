@@ -11,7 +11,7 @@ const Card = ({  title, category, description, _id }) => {
   return (
     <div className="bg-white  p-6 rounded-lg shadow-lg transition duration-300 transform hover:scale-105  w-300 h-450" >
       <div className='flex flex-col justify-around'>
-        <Image src="/heart.png" width={50} height={50} alt='logo' className='my-2'/>
+        <Image src="/heart.png" width={50} height={50} alt='logo' className='my-2' />
         <div className='my-4'>
           <h3 className="text-xl md:text-2xl font-bold  text-gray-700 ">{title}</h3>
           <p  className={`text-gray-500  p-1 text-xs max-w-fit  `}>{category} </p>
@@ -67,21 +67,21 @@ const Test =  () => {
   const filteredCards = selectedType === 'All' ? tests : tests.filter((test) => test.category === selectedType);
 
   return (
-    <div className=" h-full bg-stone-100">
-      <div className= "flex flex-col items-center justify-center bg-stone-300 py-16 px-8">
-        <h1 className="text-4xl md:text-6xl font-bold mt-10 text-center text-gray-700">Tools for better thinking</h1>
-        <p className="mt-6 text-lg md:text-xl text-center text-gray-700">Thinking tools and frameworks to help you solve problems, make decisions and understand systems.</p>
+    <div className=" min-h-screen h-full bg-white">
+      <div className= "flex flex-col items-center justify-center bg-white py-16 px-8">
+        <h1 className="text-4xl md:text-6xl font-bold mt-10 text-center text-gray-700">Tests for better Relationship</h1>
+        <p className="mt-6 text-lg md:text-xl text-center text-gray-700">Personalised Test for identifying problems and help you to solve problems, make decisions and understand relationship better.</p>
         
       
         
         <div className="mt-6">
-          <button className="text-white bg-cyan-700 p-3 rounded-md"><a href="">Try the app</a></button>
+          <button className="text-white bg-cyan-700 p-3 rounded-md"><a href="/personality-test">Personality Test</a></button>
         </div>
       </div>
 
 
      <div id="tools" className="mt-8">
-        <h2 className=" text-center text-3xl font-bold text-gray-700">Curated collection of thinking tools</h2>
+        <h2 className=" text-center text-3xl font-bold text-gray-700">Curated collection of analysis tests</h2>
     
         <div className="flex flex-wrap items-center justify-center mt-8 ml-5 mb-16 ">
           
