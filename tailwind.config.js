@@ -1,4 +1,3 @@
-const { Fredoka } = require('next/font/google');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -45,8 +44,7 @@ module.exports = {
         poppins: ['Poppins', 'sans-serif'],
         montserrat: ['Montserrat', 'sans-serif'],
         fredoka:['Fredoka', 'cursive'],
-        TestCalibre: ['TestCalibre', 'Fredoka'],
-        TestCalibre: ['TestCalibre', 'Poppins'],
+        TestCalibre: ['TestCalibre', 'sans-serif'],
       },
     },
     backgroundImage: {
