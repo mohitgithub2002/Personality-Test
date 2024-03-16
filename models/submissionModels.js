@@ -1,5 +1,15 @@
 import mongoose , {Schema, models} from 'mongoose';
 
+const answerSchema = new Schema({
+    category: {
+        type: Number,
+        required: true,
+    },
+    answer: [{
+        type: Number,
+    }],
+});
+
 const userTestSchema = new Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
@@ -9,10 +19,6 @@ const userTestSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Test',
     },
-    score: Number,
-    categoryScore:[{
-        type:Number
-    }],
     answers: [answerSchema], // An array of answer documents
     dateTaken: {
         type: Date,
@@ -20,16 +26,8 @@ const userTestSchema = new Schema({
     },
 })
 
-const answerSchema = new Schema({
-    category: {
-        type: Number,
-        required: true,
-    },
-    answer: [{
-        type: String,
-    }],
-});
 
-const submission =  models.UsersTestData || mongoose.model('submissionData', userTestSchema);
 
-export default submission;
+const Submit=  models.SubmissionTestData || mongoose.model('SubmissionTestData', userTestSchema);
+
+export default Submit;

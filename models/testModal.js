@@ -1,5 +1,20 @@
 import mongoose , {Schema, models} from 'mongoose';
 
+const optionSchema = new Schema({
+    id: {
+        type: Number,
+        required: true,
+    },
+    option: {
+        type: String,
+        required: true,
+    },
+    description: {
+        type: String,
+        required: true,
+    },
+});
+
 const questionSchema = new Schema({
     category: {
         type: Number,
@@ -12,16 +27,6 @@ const questionSchema = new Schema({
     options: [optionSchema], // An array of option documents
 });
 
-const optionSchema = new Schema({
-    option: {
-        type: String,
-        required: true,
-    },
-    description: {
-        type: String,
-        required: true,
-    },
-}, {_id : false}); // disable
 
 const traitSchema = new Schema({
     trait: {
@@ -51,6 +56,6 @@ const testSchema = new Schema({
     traits:[traitSchema],  //An array of trait document
 });
 
-const Tests =  models.Test || mongoose.model('AllTest', testSchema);
+const Tests =  models.AllTest || mongoose.model('AllTest', testSchema);
 
 export default Tests;

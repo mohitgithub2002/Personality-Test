@@ -15,6 +15,6 @@ const userSchema = new Schema({
     personalitySymbol: String, //personality code
 })
 
-const Users =  models.User || mongoose.model('AllUser', userSchema);
+const Users =  models.AllUser || mongoose.model('AllUser', userSchema);
 
 export default Users;
