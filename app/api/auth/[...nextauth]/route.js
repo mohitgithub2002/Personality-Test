@@ -1,4 +1,4 @@
-import User from "@/models/UserSchema";
+import Users from "@/models/userModel";
 import { connectDB } from "@/utils/mongodb";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -15,7 +15,7 @@ export const authOption = {
 
                 try{
                     await connectDB();
-                    const user = await User.findOne({email});
+                    const user = await Users.findOne({email});
                     if(!user){
                         return null;
                         
@@ -63,11 +63,11 @@ export const authOption = {
             if (account.provider === 'google') {
                 await connectDB();
               // Check if user exists in your database
-                let userExists = await User.findOne({ email: user.email });
+                let userExists = await Users.findOne({ email: user.email });
               
                 if (!userExists) {
                     // Create new user if doesn't exist
-                    userExists = await User.create({
+                    userExists = await Users.create({
                     name: user.name,
                     email: user.email,
                     
