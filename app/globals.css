@@ -9,13 +9,13 @@
 
 @font-face {
   font-family: 'TestCalibre';
-  src: url('/public/assets/TestCalibre-Regular.otf') format('opentype');
+  src: url('/assets/TestCalibre-Regular.otf') format('opentype');
   font-weight: 400; /* Normal weight */
   font-style: normal;
 }
 @font-face {
   font-family: 'TestCalibre';
-  src: url('/public/assets/TestCalibre-Semibold.otf') format('opentype');
+  src: url('/assets/TestCalibre-Semibold.otf') format('opentype');
   font-weight: 600; /* Normal weight */
   font-style: normal;
 }

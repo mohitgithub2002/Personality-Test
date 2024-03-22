@@ -35,9 +35,9 @@ module.exports = {
         dorange: "#e0822f",
         dblue: "#2779a7",
         dpurple: "#9b51e0",
-        bannerColor: "#622569"
-
-
+        bannerColor: "#622569",
+        primaryColor: "#FC5757",
+        nextColor:"#007BFF"
       },
       fontFamily: {
         quicksand: ['Quicksand', 'sans-serif'],
